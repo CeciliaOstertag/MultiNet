@@ -114,13 +114,13 @@ class MultiDataset(Dataset):
 			random.seed(seed)
 			#print(self.list_ids)
 			random.shuffle(c)
-			self.list_files, self.list_ids, self.list_labels = zip(*c)
+			self.list_files, self.list_allids, self.list_alllabels = zip(*c)
 			self.dataset = self.list_files[57:]
-			self.list_ids = self.list_ids[57:]
-			self.list_labels = self.list_labels[57:]
+			self.list_ids = self.list_allids[57:]
+			self.list_labels = self.list_alllabels[57:]
 			self.test = self.list_files[:57]
-			self.test_ids = self.list_ids[:57]
-			self.test_labels = self.list_labels[:57]
+			self.test_ids = self.list_allids[:57]
+			self.test_labels = self.list_alllabels[:57]
 			#print(self.list_ids)
 			if self.list_files[0:start] == None:
 				self.data = self.list_files[stop:len(self.list_files)]
