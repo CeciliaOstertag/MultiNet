@@ -586,7 +586,7 @@ for fold in range(nb_folds):
 	print("Nb of validation data: ",len(dataval))
 	val_dataloader = DataLoader(dataval, shuffle=True, num_workers=20,batch_size=batch_size, drop_last=True)
 	
-	datatest = MultiDataset("/data1/cecilia/ADNI_mri", train = False, augment=False, dataset = shuffled_dataset, list_ids = ids, list_labels = labels, val_size=val_size, test= True, missing_data=True, missing_p = missing_p, fold=fold, inference=True)
+	datatest = MultiDataset("/data1/cecilia/ADNI_mri", train = False, augment=False, dataset = test_dataset, list_ids = test_ids, list_labels = test_labels, val_size=val_size, test= True, missing_data=True, missing_p = missing_p, fold=fold, inference=True)
 	print("Nb of test data: ",len(datatest))
 	test_dataloader = DataLoader(datatest, shuffle=True, num_workers=20,batch_size=batch_size, drop_last=True)
 	
